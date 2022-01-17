@@ -1,6 +1,20 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
   <world name="blanket_physics">
+
+      <physics name="1ms" type="ignored">
+        <max_step_size>0.01</max_step_size>
+        <real_time_factor>1.0</real_time_factor>
+        </physics>
+        <plugin
+          filename="ignition-gazebo-physics-system"
+          name="ignition::gazebo::systems::Physics">
+        </plugin>
+        <plugin
+          filename="ignition-gazebo-user-commands-system"
+          name="ignition::gazebo::systems::UserCommands">
+        </plugin>
+
     <plugin
       filename="libignition-gazebo-physics-system.so"
       name="ignition::gazebo::systems::Physics">
@@ -14,21 +28,21 @@
       filename="libignition-gazebo-scene-broadcaster-system.so"
       name="ignition::gazebo::systems::SceneBroadcaster">
     </plugin>
-    <gui fullscreen="0">
-      <!-- 3D scene -->
-      <plugin filename="GzScene3D" name="3D View">
-        <ignition-gui>
-          <title>3D View</title>
-          <property type="bool" key="showTitleBar">false</property>
-          <property type="string" key="state">docked</property>
-        </ignition-gui>
+            <gui fullscreen="0">
 
-        <engine>ogre2</engine>
-        <scene>scene</scene>
-        <ambient_light>1.0 1.0 1.0 1.0</ambient_light>
-        <background_color>1 1 1 1</background_color>
-        <camera_pose>-6 0 6 0 0.5 0</camera_pose>
-      </plugin>
+            <!-- 3D scene -->
+            <plugin filename="GzScene3D" name="3D View">
+                <ignition-gui>
+                <title>3D View</title>
+                <property type="bool" key="showTitleBar">false</property>
+                <property type="string" key="state">docked</property>
+                </ignition-gui>
+
+                <engine>ogre2</engine>
+                <scene>scene</scene>
+                <ambient_light>0.4 0.4 0.4</ambient_light>
+                <background_color>0.8 0.8 0.8</background_color>
+            </plugin>
 
       <!-- World control -->
       <plugin filename="WorldControl" name="World control">
@@ -49,7 +63,7 @@
 
         <play_pause>true</play_pause>
         <step>true</step>
-        <start_paused>true</start_paused>
+        <start_paused>false</start_paused>
         <service>/world/shapes/control</service>
         <stats_topic>/world/shapes/stats</stats_topic>
 
@@ -78,6 +92,10 @@
         <iterations>true</iterations>
         <topic>/world/shapes/stats</topic>
       </plugin>
+
+                            <!-- Entity tree -->
+            <plugin filename="EntityTree" name="Entity tree">
+            </plugin>
     </gui>
 
     <light type="directional" name="sun">
@@ -120,8 +138,908 @@
             </link>
       </model>
 
-    <include>
-      <uri>model://blanket.sdf</uri>
-    </include>
+
+		<include>
+		<name>piece_ 0 </name>
+		<pose> 0.0 0.0  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 1 </name>
+		<pose> 0.0 0.1  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 2 </name>
+		<pose> 0.0 0.2  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 3 </name>
+		<pose> 0.0 0.30000000000000004  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 4 </name>
+		<pose> 0.1 0.1  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 5 </name>
+		<pose> 0.1 0.2  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 6 </name>
+		<pose> 0.1 0.30000000000000004  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 7 </name>
+		<pose> 0.1 0.4  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 8 </name>
+		<pose> 0.2 0.1  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 9 </name>
+		<pose> 0.2 0.2  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 10 </name>
+		<pose> 0.2 0.30000000000000004  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 11 </name>
+		<pose> 0.2 0.4  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 12 </name>
+		<pose> 0.30000000000000004 0.1  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 13 </name>
+		<pose> 0.30000000000000004 0.2  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 14 </name>
+		<pose> 0.30000000000000004 0.30000000000000004  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 15 </name>
+		<pose> 0.30000000000000004 0.4  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 16 </name>
+		<pose> 0.4 0.1  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 17 </name>
+		<pose> 0.4 0.2  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 18 </name>
+		<pose> 0.4 0.30000000000000004  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 19 </name>
+		<pose> 0.4 0.4  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 20 </name>
+		<pose> 0.5 0.1  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 21 </name>
+		<pose> 0.5 0.2  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 22 </name>
+		<pose> 0.5 0.30000000000000004  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 23 </name>
+		<pose> 0.5 0.4  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 24 </name>
+		<pose> 0.6 0.1  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 25 </name>
+		<pose> 0.6 0.2  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 26 </name>
+		<pose> 0.6 0.30000000000000004  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 27 </name>
+		<pose> 0.6 0.4  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 28 </name>
+		<pose> 0.7 0.1  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 29 </name>
+		<pose> 0.7 0.2  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 30 </name>
+		<pose> 0.7 0.30000000000000004  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 31 </name>
+		<pose> 0.7 0.4  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 32 </name>
+		<pose> 0.7999999999999999 0.1  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 33 </name>
+		<pose> 0.7999999999999999 0.2  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 34 </name>
+		<pose> 0.7999999999999999 0.30000000000000004  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 35 </name>
+		<pose> 0.7999999999999999 0.4  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 36 </name>
+		<pose> 0.8999999999999999 0.1  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 37 </name>
+		<pose> 0.8999999999999999 0.2  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 38 </name>
+		<pose> 0.8999999999999999 0.30000000000000004  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 39 </name>
+		<pose> 0.8999999999999999 0.4  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 40 </name>
+		<pose> 0.9999999999999999 0.1  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 41 </name>
+		<pose> 0.9999999999999999 0.2  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 42 </name>
+		<pose> 0.9999999999999999 0.30000000000000004  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 43 </name>
+		<pose> 0.9999999999999999 0.4  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 44 </name>
+		<pose> 1.0999999999999999 0.1  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 45 </name>
+		<pose> 1.0999999999999999 0.2  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 46 </name>
+		<pose> 1.0999999999999999 0.30000000000000004  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 47 </name>
+		<pose> 1.0999999999999999 0.4  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 48 </name>
+		<pose> 1.2 0.1  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+		<include>
+		<name>piece_ 49 </name>
+		<pose> 1.2 0.2  10 0 0 0</pose>
+		<uri>model://blanket.sdf</uri>
+		</include>
+
+
+
+		<joint name='plate_ 0 ' type='revolute'>
+		<pose relative_to='piece_ 0 '/>
+		<parent>piece_ 0 </parent>
+		<child>piece_ 1 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 1 ' type='revolute'>
+		<pose relative_to='piece_ 1 '/>
+		<parent>piece_ 1 </parent>
+		<child>piece_ 2 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 2 ' type='revolute'>
+		<pose relative_to='piece_ 2 '/>
+		<parent>piece_ 2 </parent>
+		<child>piece_ 3 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 3 ' type='revolute'>
+		<pose relative_to='piece_ 3 '/>
+		<parent>piece_ 3 </parent>
+		<child>piece_ 4 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 4 ' type='revolute'>
+		<pose relative_to='piece_ 4 '/>
+		<parent>piece_ 4 </parent>
+		<child>piece_ 5 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 5 ' type='revolute'>
+		<pose relative_to='piece_ 5 '/>
+		<parent>piece_ 5 </parent>
+		<child>piece_ 6 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 6 ' type='revolute'>
+		<pose relative_to='piece_ 6 '/>
+		<parent>piece_ 6 </parent>
+		<child>piece_ 7 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 7 ' type='revolute'>
+		<pose relative_to='piece_ 7 '/>
+		<parent>piece_ 7 </parent>
+		<child>piece_ 8 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 8 ' type='revolute'>
+		<pose relative_to='piece_ 8 '/>
+		<parent>piece_ 8 </parent>
+		<child>piece_ 9 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 9 ' type='revolute'>
+		<pose relative_to='piece_ 9 '/>
+		<parent>piece_ 9 </parent>
+		<child>piece_ 10 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 10 ' type='revolute'>
+		<pose relative_to='piece_ 10 '/>
+		<parent>piece_ 10 </parent>
+		<child>piece_ 11 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 11 ' type='revolute'>
+		<pose relative_to='piece_ 11 '/>
+		<parent>piece_ 11 </parent>
+		<child>piece_ 12 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 12 ' type='revolute'>
+		<pose relative_to='piece_ 12 '/>
+		<parent>piece_ 12 </parent>
+		<child>piece_ 13 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 13 ' type='revolute'>
+		<pose relative_to='piece_ 13 '/>
+		<parent>piece_ 13 </parent>
+		<child>piece_ 14 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 14 ' type='revolute'>
+		<pose relative_to='piece_ 14 '/>
+		<parent>piece_ 14 </parent>
+		<child>piece_ 15 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 15 ' type='revolute'>
+		<pose relative_to='piece_ 15 '/>
+		<parent>piece_ 15 </parent>
+		<child>piece_ 16 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 16 ' type='revolute'>
+		<pose relative_to='piece_ 16 '/>
+		<parent>piece_ 16 </parent>
+		<child>piece_ 17 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 17 ' type='revolute'>
+		<pose relative_to='piece_ 17 '/>
+		<parent>piece_ 17 </parent>
+		<child>piece_ 18 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 18 ' type='revolute'>
+		<pose relative_to='piece_ 18 '/>
+		<parent>piece_ 18 </parent>
+		<child>piece_ 19 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 19 ' type='revolute'>
+		<pose relative_to='piece_ 19 '/>
+		<parent>piece_ 19 </parent>
+		<child>piece_ 20 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 20 ' type='revolute'>
+		<pose relative_to='piece_ 20 '/>
+		<parent>piece_ 20 </parent>
+		<child>piece_ 21 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 21 ' type='revolute'>
+		<pose relative_to='piece_ 21 '/>
+		<parent>piece_ 21 </parent>
+		<child>piece_ 22 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 22 ' type='revolute'>
+		<pose relative_to='piece_ 22 '/>
+		<parent>piece_ 22 </parent>
+		<child>piece_ 23 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 23 ' type='revolute'>
+		<pose relative_to='piece_ 23 '/>
+		<parent>piece_ 23 </parent>
+		<child>piece_ 24 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 24 ' type='revolute'>
+		<pose relative_to='piece_ 24 '/>
+		<parent>piece_ 24 </parent>
+		<child>piece_ 25 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 25 ' type='revolute'>
+		<pose relative_to='piece_ 25 '/>
+		<parent>piece_ 25 </parent>
+		<child>piece_ 26 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 26 ' type='revolute'>
+		<pose relative_to='piece_ 26 '/>
+		<parent>piece_ 26 </parent>
+		<child>piece_ 27 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 27 ' type='revolute'>
+		<pose relative_to='piece_ 27 '/>
+		<parent>piece_ 27 </parent>
+		<child>piece_ 28 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 28 ' type='revolute'>
+		<pose relative_to='piece_ 28 '/>
+		<parent>piece_ 28 </parent>
+		<child>piece_ 29 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 29 ' type='revolute'>
+		<pose relative_to='piece_ 29 '/>
+		<parent>piece_ 29 </parent>
+		<child>piece_ 30 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 30 ' type='revolute'>
+		<pose relative_to='piece_ 30 '/>
+		<parent>piece_ 30 </parent>
+		<child>piece_ 31 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 31 ' type='revolute'>
+		<pose relative_to='piece_ 31 '/>
+		<parent>piece_ 31 </parent>
+		<child>piece_ 32 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 32 ' type='revolute'>
+		<pose relative_to='piece_ 32 '/>
+		<parent>piece_ 32 </parent>
+		<child>piece_ 33 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 33 ' type='revolute'>
+		<pose relative_to='piece_ 33 '/>
+		<parent>piece_ 33 </parent>
+		<child>piece_ 34 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 34 ' type='revolute'>
+		<pose relative_to='piece_ 34 '/>
+		<parent>piece_ 34 </parent>
+		<child>piece_ 35 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 35 ' type='revolute'>
+		<pose relative_to='piece_ 35 '/>
+		<parent>piece_ 35 </parent>
+		<child>piece_ 36 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 36 ' type='revolute'>
+		<pose relative_to='piece_ 36 '/>
+		<parent>piece_ 36 </parent>
+		<child>piece_ 37 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 37 ' type='revolute'>
+		<pose relative_to='piece_ 37 '/>
+		<parent>piece_ 37 </parent>
+		<child>piece_ 38 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 38 ' type='revolute'>
+		<pose relative_to='piece_ 38 '/>
+		<parent>piece_ 38 </parent>
+		<child>piece_ 39 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 39 ' type='revolute'>
+		<pose relative_to='piece_ 39 '/>
+		<parent>piece_ 39 </parent>
+		<child>piece_ 40 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 40 ' type='revolute'>
+		<pose relative_to='piece_ 40 '/>
+		<parent>piece_ 40 </parent>
+		<child>piece_ 41 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 41 ' type='revolute'>
+		<pose relative_to='piece_ 41 '/>
+		<parent>piece_ 41 </parent>
+		<child>piece_ 42 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 42 ' type='revolute'>
+		<pose relative_to='piece_ 42 '/>
+		<parent>piece_ 42 </parent>
+		<child>piece_ 43 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 43 ' type='revolute'>
+		<pose relative_to='piece_ 43 '/>
+		<parent>piece_ 43 </parent>
+		<child>piece_ 44 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 44 ' type='revolute'>
+		<pose relative_to='piece_ 44 '/>
+		<parent>piece_ 44 </parent>
+		<child>piece_ 45 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 45 ' type='revolute'>
+		<pose relative_to='piece_ 45 '/>
+		<parent>piece_ 45 </parent>
+		<child>piece_ 46 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 46 ' type='revolute'>
+		<pose relative_to='piece_ 46 '/>
+		<parent>piece_ 46 </parent>
+		<child>piece_ 47 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 47 ' type='revolute'>
+		<pose relative_to='piece_ 47 '/>
+		<parent>piece_ 47 </parent>
+		<child>piece_ 48 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 48 ' type='revolute'>
+		<pose relative_to='piece_ 48 '/>
+		<parent>piece_ 48 </parent>
+		<child>piece_ 49 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+		<joint name='plate_ 49 ' type='revolute'>
+		<pose relative_to='piece_ 49 '/>
+		<parent>piece_ 49 </parent>
+		<child>piece_ 50 </child>
+		<axis>
+		<limit>
+		<lower>-1.79769e+308</lower>
+		<upper>1.79769e+308</upper>
+		</limit>
+		</axis>
+		</joint>
+
   </world>
 </sdf>
